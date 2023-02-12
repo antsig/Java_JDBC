@@ -11,11 +11,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 /**
- *
+ *2
  * @author Bendahara
  */
 public class CRUD {
-     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/java_jdbc";
     static final String USER = "root";
     static final String PASS = "";
@@ -98,19 +98,16 @@ public class CRUD {
 }
     static void insertMhs() {
     try {
-        // ambil input dari user
         System.out.print("NIM: ");
         String nim = input.readLine().trim();
         System.out.print("Nama: ");
         String nama = input.readLine().trim();
         System.out.print("Jurusan: ");
         String jurusan = input.readLine().trim();
-        
-        // query simpan
+    
         String sql = "INSERT INTO mahasiswa (nim, nama, jurusan) VALUE('%s', '%s', '%s')";
         sql = String.format(sql, nim, nama, jurusan);
         
-        // simpan buku
         stmt.execute(sql);
         
     } catch (Exception e) {
@@ -118,8 +115,7 @@ public class CRUD {
     }
 }
     static void updateMhs() {
-    try {  
-        // ambil input dari user
+    try {
         System.out.print("NIM yang mau diedit: ");
         String nim = input.readLine().trim();
         System.out.print("Nama: ");
@@ -127,12 +123,10 @@ public class CRUD {
         System.out.print("Jurusan: ");
         String jurusan = input.readLine().trim();
 
-        // query update
         String sql = "UPDATE mahasiswa SET nama='%s', jurusan='%s' WHERE nim=%s";
         sql = String.format(sql, nama, jurusan, nim);
 
-        // update data buku
-        stmt.execute(sql);
+       stmt.execute(sql);
         
     } catch (Exception e) {
         e.printStackTrace();
@@ -140,14 +134,11 @@ public class CRUD {
 }
     static void deleteMhs() {
     try {
-        
-        // ambil input dari user
         System.out.print("NIM yang mau dihapus: ");
         String nim = input.readLine().trim();
         
-        // buat query hapus
         String sql = String.format("DELETE FROM mahasiswa WHERE nim=%s", nim);
-        // hapus data
+        
         stmt.execute(sql);
         
         System.out.println("Data telah terhapus...");

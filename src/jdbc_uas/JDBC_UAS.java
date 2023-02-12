@@ -33,7 +33,7 @@ public class JDBC_UAS {
             rs = stmt.executeQuery(sql);
             
             while(rs.next()){
-                System.out.println("NIM: " + rs.getInt("nim"));
+                System.out.println("NIM: " + rs.getString("nim"));
                 System.out.println("Nama: " + rs.getString("nama"));
                 System.out.println("Jurusan: " + rs.getString("jurusan"));
             }
